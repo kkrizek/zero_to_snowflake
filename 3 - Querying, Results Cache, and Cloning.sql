@@ -1,5 +1,4 @@
  --Querying, the results cache, and cloning
-use role sysadmin;
 use warehouse <your_initials>_analytics_wh;
 use database <your_db>;
 use schema public;
