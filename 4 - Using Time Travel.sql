@@ -1,3 +1,7 @@
+use database <your_db>;
+use schema public;
+use warehouse <your_initials>_compute_wh;
+
 --USING TIME TRAVEL
 /*
 Snowflake's powerful Time Travel feature enables accessing historical data, as well as the objects storing the data, at 
@@ -18,10 +22,6 @@ SELECT * FROM sec_filings_index LIMIT 10;
 Let's roll back the COMPANY_METADATA table in the CYBERSYN database to a previous state to fix an unintentional DML 
 error that replaces all the company names in the table with the word "oops".
  */
-USE ROLE sysadmin;
-USE WAREHOUSE <your_initials>_compute_wh;
-USE DATABASE cybersyn;
-USE SCHEMA public;
 
 --Run the following command to replace all of the company names in the table with the word "oops"
 UPDATE company_metadata SET company_name = 'oops';
