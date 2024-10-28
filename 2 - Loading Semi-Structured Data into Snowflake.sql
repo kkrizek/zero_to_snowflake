@@ -11,7 +11,7 @@ CREATE TABLE sec_filings_index (v variant);
 CREATE TABLE sec_filings_attributes (v variant);
 
 --create a stage that points to the bucket where the semi-structured JSON data is stored on AWS S3
-CREATE STAGE cybersyn.public.cybersyn_sec_filings
+CREATE STAGE <your_db>.public.cybersyn_sec_filings
 url = 's3://sfquickstarts/zero_to_snowflake/cybersyn_cpg_sec_filings/';
 
 LIST @cybersyn_sec_filings;
