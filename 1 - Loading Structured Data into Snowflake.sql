@@ -1,4 +1,4 @@
-use schema cybersyn.public;
+use schema <your_db>.public;
 
 /* 
 Create your compute warehouse; set the size to extra small.  
@@ -34,7 +34,7 @@ We are working with structured, comma-delimited data that has already been stage
 external S3 bucket. Before we can use this data, we first need to create a stage that specifies 
 the location of our external bucket.
  */
-CREATE STAGE cybersyn.public.cybersyn_sec_filings
+CREATE STAGE <your_db>.public.cybersyn_company_metadata
 url = 's3://sfquickstarts/zero_to_snowflake/cybersyn-consumer-company-metadata-csv/';
 
 LIST @cybersyn_company_metadata;
@@ -59,7 +59,7 @@ matches the data structure.
     NULL_IF = ('')  -- Treats empty strings as NULL values
     COMMENT = 'File format for ingesting data for zero to snowflake';
 
-SHOW FILE FORMATS IN DATABASE cybersyn;
+SHOW FILE FORMATS IN DATABASE <your_db>;
 
 
 
@@ -80,7 +80,7 @@ additional compute resources have on the loading time.
 SELECT * FROM company_metadata LIMIT 10;
 
 --Change the warehouse size to LARGE
-ALTER WAREHOUSE compute_wh SET warehouse_size='large';
+ALTER WAREHOUSE <your_initials>_compute_wh SET warehouse_size='large';
 
 -- Verify the change using the following SHOW WAREHOUSES:
 SHOW WAREHOUSES;
